@@ -1,22 +1,31 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :all_recipes, :by_category, :show]
 
   # GET /recipes
   # GET /recipes.json
   def index
+  end
+
+  def all_recipes
     @recipes = Recipe.all
   end
+
+  def by_category
+    @category = params[:category]
+    @recipes = Recipe.where(category: @category)
+  end
+
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipes = Recipe.all
   end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    @categories = ['Chicken', 'Beef', 'Fish', 'Breakfast', 'Vegetable']
-    @categories.sort!
   end
 
   # GET /recipes/1/edit

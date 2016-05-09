@@ -18,22 +18,31 @@
 @import 'font-awesome';
 
 html, body {
-	background: url(<%= asset_path 'cooking-bg.jpg' %>) no-repeat center center fixed;
+	background: url(<%= asset_path 'cooking-bg-bw.jpg' %>) no-repeat center center fixed;
 	background-size: cover;
 	color: #fff;
+
 }
 p {
 	color: #fff;
 }
 
-.well {
-	background: rgba(0,0,0,0.6);
+.recipe-text {
+	color: #000
 }
 
- h3{
- 	text-decoration: underline;
- }
+.well {
+	background: rgba(0,0,0,0.8);
+}
 
+.recipe-well {
+	background: #fff
+}
+.panel {
+	background: rgba(0,0,0,0.8)
+}
+
+ 
 .well-size{
 	height: 250px;
 }

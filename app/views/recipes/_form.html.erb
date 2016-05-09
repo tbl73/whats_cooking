@@ -1,25 +1,32 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
     <div class="well">
-    <%= simple_form_for(@recipe) do |f| %>
-      <%= f.input :name, label: 'Title' %>
+    <%= form_for(@recipe) do |f| %>
+      <div class="form-group">
+      <%= f.text_field :name, label: 'Title', class: "form-control" %>
+    </div>
       <p><strong>Ingredients</strong></p>
       <div id='ingredients'>
-       <%= f.simple_fields_for :ingredients do |i| %>
+       <%= f.fields_for :ingredients do |i| %>
        <%= render 'ingredient_fields', f: ingredient %>
        <% end %>
       <div class='links'>
         <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
       </div>
-      <div>
-        <%= f.input :directions %>
-        <%= f.input :category, collection: @categories %>
-        <%#= f.file :image %>
-        <%#= f.hidden :user_id, value: current_user.id %>
+      <div class="form-group">
+        <%= f.text_area :directions, class: "form-control" %>
       </div>
-
-      <%= f.button :submit %>
-
+      <div class="form-group">
+        <%= f.select :category, @categories, {:include_blank => 'Choose a category'} %>
+      </div>
+      <div class="form-group">
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "btn btn-default" %>
+      </div>
     <% end %>
   </div>
   </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'recipes#index'
+  get 'by_category' => 'recipes#by_category'
+  get 'all' => 'recipes#all_recipes'
 
   devise_for :users
   resources :recipes
