@@ -1,9 +1,10 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-2">
     <div class="well">
     <%= form_for(@recipe) do |f| %>
       <div class="form-group">
-      <%= f.text_field :name, label: 'Title', class: "form-control" %>
+        <p><strong>Title</strong></p>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
       <p><strong>Ingredients</strong></p>
       <div id='ingredients'>
@@ -14,12 +15,14 @@
         <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
       </div>
       <div class="form-group">
+        <%= f.label :directions %>
         <%= f.text_area :directions, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.select :category, @categories, {:include_blank => 'Choose a category'} %>
       </div>
       <div class="form-group">
+        <p><strong>Upload an image of the recipe</strong></p>
         <%= f.file_field :image, class: "form-control" %>
       </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
