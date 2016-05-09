@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <div class="well">
+    <%= simple_form_for(@recipe) do |f| %>
+      <%= f.input :name, label: 'Title' %>
+      <p><strong>Ingredients</strong></p>
+      <div id='ingredients'>
+       <%= f.simple_fields_for :ingredients do |i| %>
+       <%= render 'ingredient_fields', f: ingredient %>
+       <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+      </div>
+      <div>
+        <%= f.input :directions %>
+        <%= f.input :category, collection: @categories %>
+        <%#= f.file :image %>
+        <%#= f.hidden :user_id, value: current_user.id %>
+      </div>
+
+      <%= f.button :submit %>
+
+    <% end %>
+  </div>
+  </div>
+</div>
