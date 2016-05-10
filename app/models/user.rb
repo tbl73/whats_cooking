@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :recipes
+  has_many :user_libraries
+  has many :libraries, through: :user_libraries
 end
