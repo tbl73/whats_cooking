@@ -49,7 +49,6 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
-    
   end
 
   # PATCH/PUT /recipes/1
