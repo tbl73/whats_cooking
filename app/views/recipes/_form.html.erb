@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
     <div class="well">
     <%= form_for(@recipe) do |f| %>
       <div class="form-group">
@@ -9,7 +9,6 @@
        <p><strong>Ingredients</strong></p>
       <div id='ingredients'>
        <%= f.fields_for :ingredients do |ingredient| %>
-       <p><%#= i.text_field :amount %> <%#= i.text_field :item %></p>
        <%= render 'ingredient_fields', f: ingredient %>
        <% end %>
       <div class='links'>

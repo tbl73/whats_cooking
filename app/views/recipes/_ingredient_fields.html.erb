@@ -1,15 +1,7 @@
 <div class="nested-fields">
-	<div class="col-md-3">
-		<div class="form-group">
-			<%= f.text_field :amount, class: "form-control" %>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<%= f.text_field :item, class: "form-control" %>
-		</div>
-	</div>
-	<div class="row">
+	<div class="form-group">
+		<%= f.text_field :item, class: "form-control" %>
     <%= link_to_remove_association "Remove Ingredient", f %>
-  </div>
+	</div>
+
 </div>
