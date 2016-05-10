@@ -6,6 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% if current_page?(root_path) %>
+	<body id="index_page"
+	<% end %>
 <body>
 
 <nav class="navbar navbar-light" style="background: rgba(0,0,0,0.5)">

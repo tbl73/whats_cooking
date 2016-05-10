@@ -18,9 +18,9 @@
           <p><%#= @recipe.category %></p>
           <p><%#= recipe.user_id %></p>
 
-<%= link_to 'Back', recipes_path, class: "btn btn-info" %>
+<%= link_to 'Back', recipes_path, class: "btn btn-default" %>
 <% if @recipe.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-default" %>
   <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></p>
 <% end %>
 

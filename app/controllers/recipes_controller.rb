@@ -13,7 +13,9 @@ class RecipesController < ApplicationController
 
   def by_category
     @category = params[:category]
-    @recipes = Recipe.where(category: @category)
+     @recipes = Recipe.where(category: @category)
+
+
   end
 
 
@@ -26,6 +28,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    3.times {@recipe.ingredients.build}
   end
 
   # GET /recipes/1/edit
