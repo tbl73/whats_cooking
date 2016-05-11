@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :categories
 
 	def categories
-		  @categories = ['Main - Chicken', 'Main - Beef', 'Main - Fish', 'Main - Vegetarian', 'Breakfast', 'Vegetable', 'Appetizer', 'Dessert']
+		  @categories = ['Main - Chicken', 'Main - Beef', 'Main - Fish', 'Main - Vegetarian', 'Breakfast', 'Vegetable', 'Appetizer', 'Dessert', 'Soup', 'Salad', 'Bread', 'Party Food']
 	    @categories.sort!
 	end
 

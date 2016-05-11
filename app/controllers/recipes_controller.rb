@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
   def by_category
     @category = params[:category]
-     @recipes = Recipe.where(category: @category)
+    @recipes = Recipe.where(category: @category)
 
 
   end
