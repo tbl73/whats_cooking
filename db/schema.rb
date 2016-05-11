@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508201215) do
+ActiveRecord::Schema.define(version: 20160511135556) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "amount"
     t.string   "item"
     t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "libraries", force: :cascade do |t|
+    t.string   "entry"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_libraries", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "library_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +43,13 @@ ActiveRecord::Schema.define(version: 20160508201215) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
+  end
+
+  create_table "user_libraries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "library_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
