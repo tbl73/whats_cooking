@@ -14,8 +14,6 @@ class RecipesController < ApplicationController
   def by_category
     @category = params[:category]
     @recipes = Recipe.where(category: @category)
-
-
   end
 
 
@@ -28,6 +26,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    #start the form with 3 nested fields for ingredients 
     3.times {@recipe.ingredients.build}
   end
 
@@ -38,7 +37,9 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.create(recipe_params)
+
+    add_to_library(@recipe)
 
     respond_to do |format|
       if @recipe.save
@@ -49,7 +50,16 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
+
   end
+
+  # adding the recipe to the user's recipe library
+  def add_to_library(recipe)
+    @id = recipe.user_id
+    @library = Library.find_by(user_id: @id)
+    @recipe_library = RecipeLibrary.create(recipe_id: recipe.id, library_id: @library.id)
+  end
+
 
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json

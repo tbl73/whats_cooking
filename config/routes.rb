@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'library/mylibrary'
+  get 'mylibrary' => 'library#mylibrary'
 
   root 'recipes#index'
   get 'by_category' => 'recipes#by_category'
   get 'all' => 'recipes#all_recipes'
 
-  devise_for :users
+  devise_for :users,
+              :controllers => { :registrations => "my_devise/registrations"}
   resources :recipes
 
   # The priority is based upon order of creation: first created -> highest priority.

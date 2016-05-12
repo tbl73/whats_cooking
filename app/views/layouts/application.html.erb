@@ -45,7 +45,7 @@
       </form> -->
       <ul class="nav navbar-nav navbar-right">
       	<% if user_signed_in? %>
-        		<li><a href="#">My Recipes</a></li>
+        		<li><%= link_to "My Recipes", mylibrary_path(user_id: current_user.id) %></li>
         		<li><a href="#">My Meal Plan</a></li>
         		<li><%= link_to "New Recipe", new_recipe_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %> 
