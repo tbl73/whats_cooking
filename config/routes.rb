@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'mylibrary' => 'library#mylibrary'
 
+  get 'add_to_library' => 'recipes#add_to_library'
+
+  get 'add_other' => 'recipes#add_other_to_library'
+
   root 'recipes#index'
   get 'by_category' => 'recipes#by_category'
   get 'all' => 'recipes#all_recipes'

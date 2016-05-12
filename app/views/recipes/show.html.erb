@@ -16,8 +16,13 @@
           <h4>Directions:</h4>
           <p><%= @recipe.directions %></p>
 
+<% if user_signed_in? %>
+<%= link_to "Add to My Recipes", add_other_path(recipe_id: @recipe.id, user_id: current_user.id), class: "btn btn-default" %>
+<% end %>
+
 <%= link_to 'Back', :back, class: "btn btn-default" %>
 <% if @recipe.user_id == current_user.id %>
+
   <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-default" %>
   <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></p>
 <% end %>

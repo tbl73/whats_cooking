@@ -60,6 +60,13 @@ class RecipesController < ApplicationController
     @recipe_library = RecipeLibrary.create(recipe_id: recipe.id, library_id: @library.id)
   end
 
+  def add_other_to_library
+    @library = Library.find_by(user_id: params[:user_id])
+    @recipe_id = params[:recipe_id]
+    @recipe_library = RecipeLibrary.create(recipe_id: @recipe_id, library_id: @library.id)
+    redirect_to mylibrary_path(user_id: current_user.id)
+  end
+
 
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
