@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_one :library
+
+  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+
 end

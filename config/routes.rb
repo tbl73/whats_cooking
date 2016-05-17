@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   get 'add_to_library' => 'recipes#add_to_library'
 
-  get 'add_other' => 'recipes#add_other_to_library'
+  get 'auto_add' => 'recipes#auto_add'
+
+  get 'remove_from_library' => 'recipes#remove_from_library'
+
+  get 'library_check' => 'recipes#library_check'
 
   root 'recipes#index'
   get 'by_category' => 'recipes#by_category'

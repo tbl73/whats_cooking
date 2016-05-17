@@ -8,4 +8,7 @@ class Recipe < ActiveRecord::Base
 	has_many :recipe_libraries
 	has_many :libraries, through: :recipe_libraries
 
+	validates :name, :directions, :category, presence: true
+
+
 end

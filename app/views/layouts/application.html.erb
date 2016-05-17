@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <% if current_page?(root_path) %>
-	<body id="index_page"
+	<body id="index_page">
 	<% end %>
 <body>
 
@@ -61,6 +61,10 @@
 </nav>
 
 <div class="container">
+  <% if user_signed_in? %>
+  <h4>Welcome, <%= current_user.username %> </h4>
+  <% end %>
+
 	<%= yield %>
 </div>
 

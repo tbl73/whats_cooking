@@ -1,25 +1,20 @@
 <div class="row">
-  <div class="col-md-4">
-    <% @recipes.each do |recipe| %>
-      <div>
-        <div class="well">
-          <h3 class="text-center"><%= recipe.name %></h3>
-          <div>
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4">
+      <div class="well well-size">
+        <h3 class="text-center"><%= recipe.name %></h3>
           <% if recipe.image.url != nil %>
-          <p><%= image_tag recipe.image.url, width: "100", class: "pull-right" %></p>
+           <p><%= image_tag recipe.image.url, width: "100", class: "text-center" %></p>
           <% end %>
-
-       		 </div>
-       	 <p>
-          <% recipe.ingredients.each do |i| %>
-            <p><%= i.amount %> <%= i.item %></p>
-          <% end %>
-        </p>
-        <p><%= recipe.directions %></p>
-        <p><%= recipe.category %></p>
-        <p><%#= recipe.user_id %></p>
-        <p><%= link_to 'Show', recipe, class: "btn btn-default" %>
+       
+        <p><%= link_to 'Show', recipe, class: "btn btn-default"%>   <%= link_to recipe.category, by_category_path(category: recipe.category), class: "btn btn-default" %>  </p>
+        <p>
+          <% if user_signed_in? %>
+          <!-- if recipe is not in library, show button to add. if it is in library, show button to remove -->
+              <%= link_to "Add to My Recipes", add_to_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+              <%= link_to "Remove from My Recipes", remove_from_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+          <% end %></p>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
