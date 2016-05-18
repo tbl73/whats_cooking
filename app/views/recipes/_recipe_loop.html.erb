@@ -11,8 +11,11 @@
         <p>
           <% if user_signed_in? %>
           <!-- if recipe is not in library, show button to add. if it is in library, show button to remove -->
+            <% if recipe.library_check(current_user.id) %>
+             <%= link_to "Remove from My Recipes", remove_from_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+            <% else %>
               <%= link_to "Add to My Recipes", add_to_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
-              <%= link_to "Remove from My Recipes", remove_from_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+             <% end %>
           <% end %></p>
       </div>
     </div>

@@ -10,5 +10,17 @@ class Recipe < ActiveRecord::Base
 
 	validates :name, :directions, :category, presence: true
 
+	def library_check(current_user_id)
+
+    @check = false
+    #check each recipe against the current recipe_id
+    self.libraries.each do |lib|
+      if lib.user_id == current_user_id
+        @check = true
+      end
+    end
+    return @check
+	end
+
 
 end
