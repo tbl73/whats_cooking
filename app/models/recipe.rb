@@ -8,6 +8,8 @@ class Recipe < ActiveRecord::Base
 	has_many :recipe_libraries
 	has_many :libraries, through: :recipe_libraries
 
+	has_many :days, through: :day_recipes
+
 	validates :name, :directions, :category, presence: true
 
 	def library_check(current_user_id)

@@ -79,25 +79,6 @@ include RecipesHelper
     redirect_to mylibrary_path(user_id: current_user.id)
   end
 
-  #check to see if the recipe is in the user's recipe library
-=begin
-  def library_check(recipe_id)
-    @library = Library.find_by(user_id: current_user.id)
-
-    #find all the recipes in the user's library
-    @recipe_lib = RecipeLibrary.where(library_id: @library.id)
-
-    @check = false
-    #check each recipe against the current recipe_id
-    @recipe_lib.each do |recipe_lib|
-      if recipe_lib.recipe_id.to_i == recipe_id.to_i
-        @check = true
-      end
-    end
-    return @check
-  end
-
-=end
   def remove_from_library
     @library = Library.find_by(user_id: current_user.id)
     @recipe_del = RecipeLibrary.where(recipe_id: params[:recipe_id], library_id: @library.id)
@@ -105,10 +86,7 @@ include RecipesHelper
     RecipeLibrary.destroy(@recipe_del)
     redirect_to mylibrary_path(user_id: current_user.id)
 
-
   end
-
-
 
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json

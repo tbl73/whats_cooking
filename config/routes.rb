@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'mealplan' => 'mealplan#display'
+
+  get 'all_mealplans' => 'mealplan#all'
+
+  post 'create_mealplan' => 'mealplan#create_mealplan'
+
+  get 'make_mealplan' => 'mealplan#generate'
+
   get 'mylibrary' => 'library#mylibrary'
 
   get 'add_to_library' => 'recipes#add_to_library'

@@ -3,19 +3,31 @@
     <div class="col-md-4">
       <div class="well well-size">
         <h3 class="text-center"><%= recipe.name %></h3>
-        <p class="pull-right">By: <%= recipe.user_id %></p>
+        <p class="pull-right">By: <%= recipe.user.username %></p>
           <% if recipe.image.url != nil %>
-           <p><%= image_tag recipe.image.url, width: "100", class: "center-it" %></p>
+           <p class="text-center"><%= image_tag recipe.image.url, width: "100", class: "center-it" %></p>
           <% end %>
        
-        <p><%= link_to 'Show', recipe, class: "btn btn-default"%>   <%= link_to recipe.category, by_category_path(category: recipe.category), class: "btn btn-default" %>  </p>
+        <p><%= link_to recipe do %>
+          <i class="fa fa-info" aria-hidden="true"></i> Details
+          <% end %></p>
+           
+           <p>
+           <%= link_to by_category_path(category: recipe.category) do %>
+           <i class="fa fa-object-group" aria-hidden="true"></i> <%=recipe.category %>
+           <% end %>
+         </p>
         <p>
           <% if user_signed_in? %>
           <!-- if recipe is not in library, show button to add. if it is in library, show button to remove -->
             <% if recipe.library_check(current_user.id) %>
-             <%= link_to "Remove from My Recipes", remove_from_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+             <%= link_to remove_from_library_path(recipe_id: recipe.id) do %>
+             <i class="fa fa-trash" aria-hidden="true"></i> Remove From Library
+             <% end %>
             <% else %>
-              <%= link_to "Add to My Recipes", add_to_library_path(recipe_id: recipe.id), class: "btn btn-default" %>
+              <%= link_to add_to_library_path(recipe_id: recipe.id) do %>
+              <i class="fa fa-plus" aria-hidden="true"></i> Add To Library
+              <% end %>
              <% end %>
           <% end %></p>
       </div>

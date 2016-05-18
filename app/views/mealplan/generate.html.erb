@@ -1,0 +1,10 @@
+<h2 class="text-center">Add Recipes to New Mealplan</h2>
+<div class="row">
+
+	<% @mylibrary.recipes.order(:name).each do |recipe| %>
+  <div class="col-md-4">
+   <%= link_to recipe.name, recipe_path(recipe.id) %>
+   
+  </div>
+  <% end %>
+</div>

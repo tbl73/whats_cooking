@@ -11,7 +11,7 @@
 	<% end %>
 <body>
 
-<nav class="navbar navbar-light white" style="background: rgba(98,145,53,0.8)">
+<nav class="navbar navbar-light white" style="background: rgba(156,213,100,0.8)">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav navbar-right">
       	<% if user_signed_in? %>
         		<li><%= link_to "My Recipes", mylibrary_path(user_id: current_user.id) %></li>
-        		<li><a href="#">My Meal Plan</a></li>
+        		<li><%= link_to "My Mealplans", all_mealplans_path(user_id: current_user.id) %></li>
         		<li><%= link_to "New Recipe", new_recipe_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %> 
             </li>
@@ -61,7 +61,7 @@
 </nav>
 <div class="container">
   <% if user_signed_in? %>
-  <h4>Welcome, <%= current_user.username %> </h4>
+  <h5 class="pull-right">Welcome, <%= current_user.username %> </h5>
   <% end %>
 
 	<%= yield %>
