@@ -80,6 +80,7 @@ include RecipesHelper
   end
 
   #check to see if the recipe is in the user's recipe library
+=begin
   def library_check(recipe_id)
     @library = Library.find_by(user_id: current_user.id)
 
@@ -96,6 +97,7 @@ include RecipesHelper
     return @check
   end
 
+=end
   def remove_from_library
     @library = Library.find_by(user_id: current_user.id)
     @recipe_del = RecipeLibrary.where(recipe_id: params[:recipe_id], library_id: @library.id)

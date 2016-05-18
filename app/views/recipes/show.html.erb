@@ -15,8 +15,6 @@
         <p><%= @recipe.directions %></p>
 
       <% if user_signed_in? %>
-        <%= link_to "Add to My Recipes", add_to_library_path(recipe_id: @recipe.id), class: "btn btn-default" %>
-
         <% if @recipe.user_id == current_user.id %>
           <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-default" %>
         <% end %>
