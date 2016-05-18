@@ -2,21 +2,21 @@
   <% @recipes.each do |recipe| %>
     <div class="col-md-4">
       <div class="well well-size">
-        <h3 class="text-center"><%= recipe.name %></h3>
-        <p class="pull-right">By: <%= recipe.user.username %></p>
+        <h4 class="text-center"><%= recipe.name %></h4>
+        <p class="text-center">By: <%= recipe.user.username %></p>
           <% if recipe.image.url != nil %>
-           <p class="text-center"><%= image_tag recipe.image.url, width: "100", class: "center-it" %></p>
+           <p class="text-center"><%= image_tag recipe.image.url, width: "100" %></p>
           <% end %>
        
-        <p><%= link_to recipe do %>
-          <i class="fa fa-info" aria-hidden="true"></i> Details
-          <% end %></p>
-           
-           <p>
-           <%= link_to by_category_path(category: recipe.category) do %>
-           <i class="fa fa-object-group" aria-hidden="true"></i> <%=recipe.category %>
-           <% end %>
+         <p>
+           <%= link_to recipe.category, by_category_path(category: recipe.category) %>
          </p>
+
+         <p><%= link_to recipe do %>
+            <i class="fa fa-info" aria-hidden="true"></i> Details
+         <% end %></p>
+           
+  
         <p>
           <% if user_signed_in? %>
           <!-- if recipe is not in library, show button to add. if it is in library, show button to remove -->

@@ -5,11 +5,10 @@
 	<% @mylibrary.recipes.order(:name).each do |recipe| %>
   	<div class="col-md-6">
   		<%= recipe.name %>
-  		<%= recipe.id %>
         <%= form_tag add_to_mealplan_path do %>
         <%= hidden_field_tag :mealplan_id, @mealplan.id %>
         <%= hidden_field_tag :recipe_id, recipe.id %>
-        <%= select_tag :day, options_for_select(@days) %>
+        <%= select_tag :day, options_for_select(@days.collect {|x| [x.name, x.id]}) %>
         <%= submit_tag "Add to Mealplan", class: "btn btn-default" %>
         <% end %>
 

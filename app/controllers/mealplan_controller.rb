@@ -38,7 +38,10 @@ class MealplanController < ApplicationController
 
   def destroy
   	@mealplan = Mealplan.find_by(params[:mealplan_id])
+
     @mealplan.destroy
+
+    redirect_to all_mealplans_path(user_id: current_user.id)
 
   end
 
