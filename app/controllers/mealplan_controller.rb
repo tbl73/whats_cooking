@@ -10,14 +10,37 @@ class MealplanController < ApplicationController
   	@friday = Day.create(name: "Friday", mealplan_id: @mealplan.id)
   	@saturday = Day.create(name: "Saturday", mealplan_id: @mealplan.id)
 
-  	redirect_to make_mealplan_path()
+  	redirect_to make_mealplan_path(mealplan_id: @mealplan.id)
   end
 
   def display
+  	@mealplan = Mealplan.find(params[:mealplan_id])
   end
 
   def generate
+  	@mealplan = Mealplan.find(params[:mealplan_id])
   	@mylibrary = Library.find_by(user_id: current_user.id)
+  	@days = Day.where(mealplan_id: @mealplan.id)
+
 
   end
+
+  def add_to_mealplan
+
+  DayRecipe.create(recipe_id: params[:recipe_id], day_id: params[:day])
+
+  redirect_to make_mealplan_path(mealplan_id: params[:mealplan_id])
+  end
+
+  def all
+  	@mealplans = Mealplan.where(user_id: current_user.id)
+  end
+
+  def destroy
+  	@mealplan = Mealplan.find_by(params[:mealplan_id])
+    @mealplan.destroy
+
+  end
+
+
 end

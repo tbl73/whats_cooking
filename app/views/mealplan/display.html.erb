@@ -1,2 +1,14 @@
-<h1>Mealplan#display</h1>
-<p>Find me in app/views/mealplan/display.html.erb</p>
+<h2><%= @mealplan.name %> Mealplan</h2>
+<div class="row">
+	<% @mealplan.days.each do |day| %>
+		<div class="col-md-4">
+			<div class="well">
+				<h3><%= day.name %>:</h3>
+
+				<% day.recipes.each do |recipe| %>
+					<%= link_to recipe.name, recipe %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

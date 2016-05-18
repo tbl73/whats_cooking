@@ -1,25 +1,4 @@
-<div class="row">
-
-  <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <div class="modal-body">
-        <p>Enter the name of your new meal plan.</p>
-        <%= form_tag create_mealplan_path do %>
-          <%= text_field_tag :name %> 
-          <%= hidden_field_tag :user_id, current_user.id %>
-          <%= submit_tag "Create Mealplan", class: "btn btn-default" %>
-        <% end %>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-</div>
+<%= render 'modal_create_plan' %>
 
 <div class="row">
   <h2 class="text-center">My Recipe Library</h2>
@@ -36,7 +15,4 @@
 </div>
 
 	
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Make New Meal Plan</button>
 
-<!-- Modal -->

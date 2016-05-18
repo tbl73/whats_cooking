@@ -1,1 +1,14 @@
-<h1 class="text-center">My Mealplans</h1>
+<h1 class="text-center">My Meal Plans</h1>
+<% if @mealplans != nil %>
+	<% @mealplans.each do |plan| %>
+		<h4>
+			<%= link_to delete_mealplan_path(mealplan_id: plan.id) do %>
+			<i class="fa fa-trash-o" aria-hidden="true"></i>
+			<% end %>
+			<%= link_to plan.name, mealplan_path(mealplan_id: plan.id) %>
+
+		</h4>
+	<% end %>
+<% end %>
+
+	<%= render 'library/modal_create_plan' %>

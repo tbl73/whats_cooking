@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'create_mealplan' => 'mealplan#create_mealplan'
 
   get 'make_mealplan' => 'mealplan#generate'
+  post 'add_to_mealplan' => 'mealplan#add_to_mealplan'
 
   get 'mylibrary' => 'library#mylibrary'
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   root 'recipes#index'
   get 'by_category' => 'recipes#by_category'
   get 'all' => 'recipes#all_recipes'
+
+  get 'delete_mealplan' => 'mealplan#destroy'
 
   devise_for :users,
               :controllers => { :registrations => "my_devise/registrations"}
