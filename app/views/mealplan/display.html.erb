@@ -1,14 +1,16 @@
-<h2><%= @mealplan.name %> Mealplan</h2>
 <div class="row">
-	<% @mealplan.days.each do |day| %>
-		<div class="col-md-6 col-md-offset-1">
-			<div class="well">
-				<h4><%= day.name %>:</h4>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="well">
+			<h2><%= @mealplan.name %> Mealplan</h2>
+
+			<% @mealplan.days.each do |day| %>
+				<h4 class="underline"><%= day.name %>: </h4>
 
 				<% day.recipes.each do |recipe| %>
-					<%= link_to recipe.name, recipe %>
+					<p><%= link_to recipe.name, recipe %></p>
 				<% end %>
-			</div>
+			<% end %>
+
 		</div>
-	<% end %>
+	</div>
 </div>

@@ -1,4 +1,8 @@
-<h1 class="text-center">My Meal Plans</h1>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="well">
+			<h1 class="text-center">My Meal Plans</h1>
+
 <% if @mealplans != nil %>
 	<% @mealplans.each do |plan| %>
 		<h4>
@@ -11,4 +15,7 @@
 	<% end %>
 <% end %>
 
-	<%= render 'library/modal_create_plan' %>
+	<p><%= render 'library/modal_create_plan' %></p>
+</div>
+</div>
+</div>
