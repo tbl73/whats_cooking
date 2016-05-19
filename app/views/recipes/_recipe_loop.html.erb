@@ -2,18 +2,19 @@
   <% @recipes.each do |recipe| %>
     <div class="col-md-4">
       <div class="well well-size">
+        <p>
+          <%= link_to recipe.category, by_category_path(category: recipe.category) %>
+        </p>
+
         <h4 class="text-center"><%= recipe.name %></h4>
         <p class="text-center">By: <%= recipe.user.username %></p>
           <% if recipe.image.url != nil %>
            <p class="text-center"><%= image_tag recipe.image.url, width: "100" %></p>
           <% end %>
        
-         <p>
-           <%= link_to recipe.category, by_category_path(category: recipe.category) %>
-         </p>
 
          <p><%= link_to recipe do %>
-            <i class="fa fa-info" aria-hidden="true"></i> Details
+            <i class="fa fa-info-circle" aria-hidden="true"></i></i> More Information
          <% end %></p>
            
   

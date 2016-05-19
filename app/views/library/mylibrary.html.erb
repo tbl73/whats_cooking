@@ -1,18 +1,5 @@
 <%= render 'modal_create_plan' %>
-
-<div class="row">
-  <h2 class="text-center">My Recipe Library</h2>
-
-	<% @mylibrary.recipes.order(:name).each do |recipe| %>
-  <div class="col-md-4">
-    <h4><%= link_to remove_from_library_path(recipe_id: recipe.id) do %>
-     <i class="fa fa-trash" aria-hidden="true"></i>
-     <% end %> 
-    <%= link_to recipe.name, recipe_path(recipe.id) %>
-    </h4>
-  </div>
-  <% end %>
-</div>
-
-	
+<div>
+<%= render 'recipes/recipe_loop' %>
+</div>	
 

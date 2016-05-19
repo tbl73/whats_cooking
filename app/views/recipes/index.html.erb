@@ -8,9 +8,16 @@
       <p>       </p>
       <h3>Welcome to our recipe and meal planning site!</h3>
       <h4><%= link_to "Browse recipes", all_path %></h4>
+      <% if user_signed_in? %>
       <h4><%= link_to "Upload recipes", new_recipe_path %></h4>
-      <h4>Create a library of recipes</h4>
-      <h4>Create meal plans</h4>
+      <h4><%= link_to "Create a library of recipes", mylibrary_path(user_id: current_user.id) %></h4>
+      <h4><%= link_to "Create meal plans", all_mealplans_path(user_id: current_user.id) %></h4>
+      <% else %>
+        <h4>Upload Recipes</h4>
+        <h4>Create a library of recipes</h4>
+        <h4>Create meal plans</h4>
+      <% end %>
+
     </div>
   </div>
 </div>
