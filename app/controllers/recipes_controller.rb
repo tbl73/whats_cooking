@@ -29,7 +29,7 @@ include RecipesHelper
   def new
     @recipe = Recipe.new
     #start the form with 3 nested fields for ingredients 
-    3.times {@recipe.ingredients.build}
+    5.times {@recipe.ingredients.build}
   end
 
   # GET /recipes/1/edit

@@ -11,7 +11,9 @@ class Recipe < ActiveRecord::Base
 	has_many :day_recipes
 	has_many :days, through: :day_recipes
 
-	validates :name, :directions, :category, presence: true
+	validates :name, presence: true
+	validates :directions, presence: true
+	validates :category, presence: true
 
 	def library_check(current_user_id)
 

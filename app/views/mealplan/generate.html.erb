@@ -4,17 +4,17 @@
 			<h3>Add recipes to the <%= @mealplan.name %> mealplan</h3>
 
 			<h4><%= link_to "Display Completed Meal Plan", mealplan_path(mealplan_id: @mealplan.id), class: "btn btn-default" %></h4>
-				<% @mylibrary.recipes.order(:name).each do |recipe| %>
-			  	<div>
-			  		<%= recipe.name %>
-			        <%= form_tag add_to_mealplan_path do %>
-			        <%= hidden_field_tag :mealplan_id, @mealplan.id %>
-			        <%= hidden_field_tag :recipe_id, recipe.id %>
-			        <%= select_tag :day, options_for_select(@days.collect {|x| [x.name, x.id]}) %>
-			        <%= submit_tag "Add to Mealplan", class: "btn btn-default" %>
-			        <% end %>
-			  	</div>
-			  <% end %>
-</div>
-</div>
+			<% @mylibrary.recipes.order(:name).each do |recipe| %>
+		  	<div>
+		  		<%= recipe.name %>
+		        <%= form_tag add_to_mealplan_path do %>
+		        <%= hidden_field_tag :mealplan_id, @mealplan.id %>
+		        <%= hidden_field_tag :recipe_id, recipe.id %>
+		        <%= select_tag :day, options_for_select(@days.collect {|x| [x.name, x.id]}) %>
+		        <%= submit_tag "Add to Meal Plan", class: "btn btn-default" %>
+		        <% end %>
+		  	</div>
+		  <% end %>
+		</div>
+	</div>
 </div>

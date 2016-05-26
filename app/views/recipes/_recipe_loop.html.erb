@@ -9,7 +9,7 @@
         <h4 class="text-center"><%= recipe.name %></h4>
         <p class="text-center">By: <%= recipe.user.username %></p>
           <% if recipe.image.url != nil %>
-           <p class="text-center"><%= image_tag recipe.image.url, width: "100" %></p>
+           <p class="text-center"><%= image_tag recipe.image.url, height: "75" %></p>
           <% end %>
        
 

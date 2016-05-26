@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="well">
-			<h2><%= @mealplan.name %> Mealplan</h2>
+			<h2><%= @mealplan.name %> Meal Plan</h2>
 
 			<% @mealplan.days.each do |day| %>
 				<h4 class="underline"><%= day.name %>: </h4>
@@ -9,6 +9,7 @@
 				<% day.recipes.each do |recipe| %>
 					<p><%= link_to recipe.name, recipe %></p>
 				<% end %>
+
 			<% end %>
 
 		</div>
