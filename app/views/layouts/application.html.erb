@@ -61,7 +61,7 @@
 </nav>
 <div class="container">
   <% if user_signed_in? %>
-  <h5 class="pull-right">Welcome, <%= current_user.username %> </h5>
+  <h5 class="pull-right no-print">Welcome, <%= current_user.username %> </h5>
   <% end %>
 
 	<%= yield %>
